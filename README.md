@@ -1,4 +1,3 @@
 # Calculator 
 
-Scientific Calculator
-Can science everything
+Scientific Calculator Can science everything
