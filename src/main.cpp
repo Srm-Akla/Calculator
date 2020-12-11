@@ -1,7 +1,7 @@
 #include <iostream>
 
 
-void Div(int a,int b){
+void divison(int a,int b){
 
    int quotient = a/b;
    int remainder = {};
@@ -15,7 +15,7 @@ void Div(int a,int b){
    std::cout<<remainder<< std::endl;
 }
 
-float multi(float a, float b){
+float multiplication(float a, float b){
 
 
    float product = a*b;
@@ -24,11 +24,11 @@ float multi(float a, float b){
 }
 
 
-int add(int a, int b){
+int addition(int a, int b){
     return a+b;
 }
 
-int sub(int a, int b){
+int subtraction(int a, int b){
     return a-b;
 }
 
@@ -44,16 +44,16 @@ int main(){
     std::cout << "Enter num2 - ";
     std::cin >> b;
 
-    if(func=="add"){
+    if(func=="addition"){
 	std::cout << add(a,b) << std::endl;
     }
-    else if(func=="sub"){
+    else if(func=="subtraction"){
 	std::cout << sub(a,b) << std::endl;
     }
-    else if (func=="Div"){
+    else if (func=="division"){
       Div(a,b);
     }
-    else if (func == "multi"){
+    else if (func == "multiplication"){
 
        std::cout<<multi(a,b);
     }
