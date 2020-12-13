@@ -1,75 +1,76 @@
 #include <iostream>
 #include <cmath>
+#include <cstdlib>
 
-class Trigonometry{
-    
-    cos();
-    sin();
-    tan();
+int add_sub;
+int multi_divi = 1;
 
-};
-
-
-
-
-int addition(int a, int b){
-    return a+b;
+int addition(int a){
+    add_sub = add_sub + a;
+   return add_sub;
 }
 
-int subtraction(int a, int b){
-    return a-b;
+int subtraction(int a){
+    if (add_sub < a){
+     add_sub = a - add_sub;
+    }else{
+     add_sub =  add_sub - a ;
+    } 
+   return add_sub;
 }
 
-void divison(int a,int b){
+int multiplication(int a){
+    multi_divi = multi_divi  * a;
+   return multi_divi;
+}
 
-   int quotient = a/b;
-   int remainder = {};
+int divison(int a){
 
-   if (a%b != 0)
+    multi_divi = a/multi_divi; 
+   /*int remainder = {};
+
+   if (fmod(a,b) != 0)
    {
-       remainder = a%b;
-   }
+       remainder = fmod(a,b);
+   }*/
    
-   std::cout<<quotient<< std::endl;
-   std::cout<<remainder<< std::endl;
-}
-
-float multiplication(float a, float b){
-
-
-   float product = a*b;
-   
-   return product;
+   return multi_divi;
 }
 
 
 
 // main() is where program execution begins.
-int main(){
-    int a,b;
+int main(int argc, char* argv[]){
+    int final_result = 0;
+
     std::string func;
-    
-    std::cout << "Enter function: add, sub, multi, Div - ";
+    std::cout << "Enter function: +, -, *, /  --> ";
     getline(std::cin, func);
-    std::cout << "Enter num1 - "; // prints Hello World
-    std::cin >> a;
-    std::cout << "Enter num2 - ";
-    std::cin >> b;
 
-    if(func=="addition"){
-	std::cout << addition(a,b) << std::endl;
-    }
-    else if(func=="subtraction"){
-	std::cout << subtraction(a,b) << std::endl;
-    }
-    else if (func=="divison"){
-      divison(a,b);
-    }
-    else if (func == "multiplication"){
+    for(int i=1;i < argc; i++){
+	//printf("%d ", std::atoi(argv[i]));
 
-       std::cout<<multiplication(a,b);
+	if(func=="+"){
+	    final_result = addition(std::atoi(argv[i])); 
+	    //printf("%d ", final_result);
+	}
+	else if(func=="-"){
+	    final_result = subtraction(std::atoi(argv[i])); 
+	    printf("%d ", final_result);
+	}
+	else if (func=="*"){
+	    final_result = multiplication(std::atoi(argv[i])); 
+	    //printf("%d ", final_result);
+	}
+	else if (func == "/"){
+	    final_result = divison(std::atoi(argv[i])); 
+	    //printf("%d ", final_result);
+	}
+	else{ std::cout << "Not working"; } 
+
     }
-    else{ std::cout << "Not working"; } 
+
+    //printf("Answer: %d", final_result);
 
     return 0;
 }
