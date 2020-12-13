@@ -6,21 +6,17 @@ int add_sub;
 int multi_divi = 1;
 
 int addition(int a){
-    add_sub = add_sub + a;
-   return add_sub;
+    add_sub += a;
+    return add_sub;
 }
 
 int subtraction(int a){
-    if (add_sub < a){
-     add_sub = a - add_sub;
-    }else{
-     add_sub =  add_sub - a ;
-    } 
-   return add_sub;
+    add_sub -= a ;
+    return add_sub;
 }
 
 int multiplication(int a){
-    multi_divi = multi_divi  * a;
+    multi_divi *= a;
    return multi_divi;
 }
 
@@ -52,7 +48,7 @@ int main(int argc, char* argv[]){
 
 	if(func=="+"){
 	    final_result = addition(std::atoi(argv[i])); 
-	    //printf("%d ", final_result);
+	    printf("%d ", final_result);
 	}
 	else if(func=="-"){
 	    final_result = subtraction(std::atoi(argv[i])); 
