@@ -1,5 +1,24 @@
 #include <iostream>
+#include <cmath>
 
+class Trigonometry{
+    
+    cos();
+    sin();
+    tan();
+
+};
+
+
+
+
+int addition(int a, int b){
+    return a+b;
+}
+
+int subtraction(int a, int b){
+    return a-b;
+}
 
 void divison(int a,int b){
 
@@ -24,13 +43,6 @@ float multiplication(float a, float b){
 }
 
 
-int addition(int a, int b){
-    return a+b;
-}
-
-int subtraction(int a, int b){
-    return a-b;
-}
 
 // main() is where program execution begins.
 int main(){
@@ -45,17 +57,17 @@ int main(){
     std::cin >> b;
 
     if(func=="addition"){
-	std::cout << add(a,b) << std::endl;
+	std::cout << addition(a,b) << std::endl;
     }
     else if(func=="subtraction"){
-	std::cout << sub(a,b) << std::endl;
+	std::cout << subtraction(a,b) << std::endl;
     }
-    else if (func=="division"){
-      Div(a,b);
+    else if (func=="divison"){
+      divison(a,b);
     }
     else if (func == "multiplication"){
 
-       std::cout<<multi(a,b);
+       std::cout<<multiplication(a,b);
     }
     else{ std::cout << "Not working"; } 
 
