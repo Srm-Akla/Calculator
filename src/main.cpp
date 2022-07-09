@@ -2,71 +2,47 @@
 #include <cmath>
 #include <cstdlib>
 
-int add_sub;
-int multi_divi = 1;
-
-int addition(int a){
-    add_sub += a;
-    return add_sub;
+float addition(float *a, float *b){
+    return (*a)+(*b);
+}
+float subtraction(float *a, float *b){
+    return (*a)-(*b);
+}
+float multiplication(float *a, float *b){
+    return (*a)*(*b);
+}
+float division(float *a, float *b){
+    return (*a)/(*b);
 }
 
-int subtraction(int a){
-    add_sub -= a ;
-    return add_sub;
-}
-
-int multiplication(int a){
-    multi_divi *= a;
-   return multi_divi;
-}
-
-int divison(int a){
-
-    multi_divi = a/multi_divi; 
-   /*int remainder = {};
-
-   if (fmod(a,b) != 0)
-   {
-       remainder = fmod(a,b);
-   }*/
-   
-   return multi_divi;
-}
-
-
-
-// main() is where program execution begins.
 int main(int argc, char* argv[]){
-    int final_result = 0;
+    float a{0}, b{0};
+    char symbol;
 
-    std::string func;
-    std::cout << "Enter function: +, -, *, /  --> ";
-    getline(std::cin, func);
+    while(true){
+        std::cout << "Enter function: (3 + 2) -> ";
+        std::cin >> a >> symbol >> b;
 
-    for(int i=1;i < argc; i++){
-	//printf("%d ", std::atoi(argv[i]));
-
-	if(func=="+"){
-	    final_result = addition(std::atoi(argv[i])); 
-	    printf("%d ", final_result);
-	}
-	else if(func=="-"){
-	    final_result = subtraction(std::atoi(argv[i])); 
-	    printf("%d ", final_result);
-	}
-	else if (func=="*"){
-	    final_result = multiplication(std::atoi(argv[i])); 
-	    //printf("%d ", final_result);
-	}
-	else if (func == "/"){
-	    final_result = divison(std::atoi(argv[i])); 
-	    //printf("%d ", final_result);
-	}
-	else{ std::cout << "Not working"; } 
-
+        switch (symbol) {
+            case '+':
+                std::cout << addition(&a,&b) << '\n';
+                break;
+            case '-':
+                std::cout << subtraction(&a,&b) << '\n';
+                break;
+            case '*':
+                std::cout << multiplication(&a,&b) << '\n';
+                break;
+            case '/':
+                std::cout << division(&a,&b) << '\n';
+                break;
+            default:
+                std::cout << "Cant find symbol" << "\n";
+                std::cout << "Example eqaution:" << "\n";
+                std::cout << "3+2, 2-6, 10*4, 134/23" << "\n";
+                break;
+        }
     }
-
-    //printf("Answer: %d", final_result);
 
     return 0;
 }
